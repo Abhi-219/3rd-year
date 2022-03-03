@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insert title here</title>
+</head>
+
+<body>
+
+    <h1>Enter State</h1>
+
+    <select id="state">
+        <option value="1">West Bengal</option>
+        <option value="2">Aasam</option>
+
+    </select>
+
+    <h1>Enter District</h1>
+    <select id="dist">
+
+    </select>
+
+    <button id="btn" onclick="show()">Submit</button>
+
+    <br>
+    <div id="desc"></div>
+
+</body>
+
+<script>
+
+    var state = 1;
+
+    ['change', 'ontouchstart', 'onmousehover','onclick'].forEach(evt =>
+        document.getElementById('state').addEventListener(evt, putOptions, true)
+    );
+    function putOptions() {
+
+        state = this.value;
+
+        console.log("Value is " + this.value);
+
+        document.getElementById('dist').innerHTML = "";
+
+        if (state == 1) {
+
+            let
+                opt1 = document.createElement('option');
+            opt1.value = 1;
+            opt1.innerHTML = "kolkata"
+            document.getElementById('dist').appendChild(opt1);
+
+            let
+                opt2 = document.createElement('option');
+            opt2.value = 2;
+            opt2.innerHTML = "howrah"
+            document.getElementById('dist').appendChild(opt2);
+
+            let
+                opt3 = document.createElement('option');
+            opt3.value = 3;
+            opt3.innerHTML = "Darjeeling"
+            document.getElementById('dist').appendChild(opt3);
+
+        }
+
+        if (state == 2) {
+
+            let
+                opt1 = document.createElement('option');
+            opt1.value = 1;
+            opt1.innerHTML = "Gauhati"
+            document.getElementById('dist').appendChild(opt1);
+
+            let
+                opt2 = document.createElement('option');
+            opt2.value = 2;
+            opt2.innerHTML = "Darrang"
+            document.getElementById('dist').appendChild(opt2);
+
+            let
+                opt3 = document.createElement('option');
+            opt3.value = 3;
+            opt3.innerHTML = "DohaGao"
+            document.getElementById('dist').appendChild(opt3);
+
+        };
+    }
+
+    function show() {
+
+        var state = document.getElementById('state').value;
+        var district = document.getElementById('dist').value;
+
+        var description = "";
+
+        console.log("state " + state + "\n");
+        console.log("district " + district + "\n");
+
+        if (state == 1) {
+            if (district == 1) {
+                description += "State is West Bengal <br> District is Kolkata ";
+            }
+            if (district == 2) {
+                description += "State is West Bengal <br> District is Howrah ";
+            }
+            if (district == 3) {
+                description += "State is West Bengal <br> District is Darjeeling ";
+            }
+        }
+
+        if (state == 2) {
+            if (district == 1) {
+                description += "State is Aasam <br> District is Gauhati ";
+            }
+            if (district == 2) {
+                description += "State is Aasam <br> District is Darrang ";
+            }
+            if (district == 3) {
+                description += "State is Aasam <br> District is DohaGao ";
+            }
+        }
+
+        document.getElementById('desc').innerHTML = "<br> <br>" + description;
+
+    }
+
+</script>
+
+</html>
