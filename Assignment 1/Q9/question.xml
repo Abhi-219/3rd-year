@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE question-paper SYSTEM "question.dtd" >
+
+<question-paper>
+
+	<question no="1">
+		<text>what is 2+3 ?</text>
+		<optionA>6</optionA>
+		<optionB>5</optionB>
+		<optionC>9</optionC>
+		<optionD>11</optionD>
+		
+		<answer value="optionB"> </answer>
+		
+	</question>
+	
+	<question no="2">
+		<text>what is 2+7 ?</text>
+		<optionA>6</optionA>
+		<optionB>5</optionB>
+		<optionC>9</optionC>
+		<optionD>11</optionD>
+		
+		<answer value="optionC"> </answer>
+		
+	</question>
+
+
+
+</question-paper>

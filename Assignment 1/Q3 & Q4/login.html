@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+</head>
+
+<body>
+
+	<h1>Login Please .....</h1>
+
+	<form name="myform" onsubmit="return validateform()">
+
+		<label for="userName">User name: </label> 
+		<input type="text" name="userName" id="userName"> <span id= "name1"></span> <br><br> 
+		
+		<label for="pwd">Password: </label> 
+		<input type="password" name="pwd" id="pwd"> <span id= "pwd1"> </span> <br><br>
+		
+		<input type="submit" name="Register">
+
+
+	</form>
+
+
+</body>
+
+<script>
+
+	
+
+	function validateform() {
+		
+		// var name = document.myform.userName.value;
+		// var password = document.myform.pwd.value;
+
+		var name = document.getElementById('userName').value;
+		var password = document.getElementById('pwd').value;
+
+		if (name == null || name == ""  ) {
+			document.getElementById('userName').style.borderColor  = "red";
+			document.getElementById('name1').style.color  = "red";
+			document.getElementById('name1').innerHTML = ' ** Name Cannot be Empty';
+			return false;
+		} else if(name.length > 10){
+			document.getElementById('userName').style.borderColor  = "red";
+			document.getElementById('name1').style.color  = "red";
+			document.getElementById('name1').innerHTML = ' ** Name must be within 10 characters';
+			return false;
+			
+		} else if (password.length < 6  || password.length > 10 ) {
+			document.getElementById('pwd').style.borderColor  = "red";
+			document.getElementById('pwd1').style.color  = "red";
+			document.getElementById('pwd1').innerHTML = ' ** Password must be  between 6 characters and 10 characters';
+			return false;
+		}
+		
+		for(let i=0; i< name.length ; i++) {
+			if( !( (name.charAt(i) >='a' && name.charAt(i) <='z') || (name.charAt(i) >='A' && name.charAt(i) <='Z') || (name.charAt(i) >='0' && name[i]<='9') || name.charAt(i) =='_') ){
+				document.getElementById('userName').style.borderColor  = "red";
+				document.getElementById('name1').style.color  = "red";
+				document.getElementById('name1').innerHTML = ' ** Name Convension Not correct';
+				return false;
+			}
+		}
+		
+		
+	    var U_case = 0 , dig=0;
+		
+		for(let i=0; i< password.length ; i++) {
+			
+			if(password.charAt(i) >='A' && password.charAt(i)<='Z'){
+				U_case =1 ;
+			}
+			
+			if(password.charAt(i)>='0' && password.charAt(i)<='9' ){
+				dig=1;
+			}
+		}
+		
+		console.log(U_case);
+		console.log(dig);
+		
+		if( !(U_case == 1 && dig == 1) ) {
+			document.getElementById('pwd').style.borderColor  = "red";
+			document.getElementById('pwd1').style.color  = "red";
+			document.getElementById('pwd1').innerHTML = ' ** Password must have at least one digit and one uppercase letter';
+			return false;
+		}
+		
+		
+	}
+	
+	
+</script>
+
+
+
+</html>
+
+
+
+

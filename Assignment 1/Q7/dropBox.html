@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drop Down Menu</title>
+</head>
+<body>
+
+	<h1>Select the Year</h1>
+	<select id="year">
+		<option value="1Y">1st Year</option>
+		<option value="2Y">2nd Year</option>
+		<option value="3Y">3rd Year</option>
+		<option value="4Y">4th Year</option>
+	</select>
+	
+	<br>
+	<br>
+	
+	<h1>Select the Semester</h1>
+	<select id="sem">
+		<option value="1S"> Semester 1 </option>
+		<option value="2S"> Semester 2 </option>
+	</select>
+	
+	<br><br>
+
+	<button id="submit" onclick="showSubjects()">Submit</button>
+
+
+	<ul id="lis">
+		
+	</ul>
+
+
+</body>
+
+<script>
+	function showSubjects() {
+
+		year = document.getElementById('year').value;
+		sem = document.getElementById('sem').value;
+		
+		var ul = document.getElementById("lis");
+		
+		ul.innerHTML = "";
+		
+
+		if (sem == "1S") {
+
+			switch (year) {
+			case "1Y":
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Math1"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Phys"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Chem"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("CPNM"));
+				ul.appendChild(li);
+				
+				
+				break;
+
+			case "2Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Dbms"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Oop"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("SE"));
+				ul.appendChild(li);
+				
+				break;
+
+			case "3Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Cloud"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("AI"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("OS"));
+				ul.appendChild(li);
+				break;
+
+			case "4Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Ml"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Distributed Systems"));
+				ul.appendChild(li);
+				break;
+
+			}
+
+		}
+
+		if (sem == "2S") {
+
+			switch (year) {
+			case "1Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Math2"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Electronics"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Electrical"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("mechanics"));
+				ul.appendChild(li);
+				break;
+
+			case "2Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Stat"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("OOS"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Graphics"));
+				ul.appendChild(li);
+				
+				break;
+
+			case "3Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Web"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("AI"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Mutimedia"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Cryptography"));
+				ul.appendChild(li);
+				
+				break;
+
+			case "4Y":
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("NLP"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Data Science"));
+				ul.appendChild(li);
+				
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode("Management"));
+				ul.appendChild(li);
+
+				break;
+
+			}
+
+		}
+		
+		
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+

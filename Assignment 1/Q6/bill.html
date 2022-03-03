@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online bill Payment</title>
+</head>
+<body>
+
+	<h1>Please Enter Payment Option Below :</h1>
+
+	<form >
+		
+		<input type="radio" id="p1" name="p1"> 
+		<label for="p1"> Pay Now </label> <br> 
+		
+		<input type="radio" id="p2" name="p2" onclick="showDate()"> 
+		<label for="p2"> Pay Later </label> 
+		<input type="date" id="dt" name="date" style="visibility: hidden;">
+		
+		<br><br>
+		
+		<input type="submit" name="Submit">
+		
+	</form>
+
+</body>
+
+<script>
+	
+	 
+	 function showDate(){
+		 document.getElementById('dt').style.visibility = "visible";
+	 }
+
+
+
+
+
+
+</script>
+
+
+</html>
