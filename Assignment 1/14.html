@@ -2,10 +2,24 @@
 
 <html>
 
-<head>
 
-    <script type="text/javascript">
+<body>
+	Enter A Word : <input id="word" type="text" > <br><BR><BR>
+    <div id="sse">
+        <a href="javascript:WebSocketTest()">Run WebSocket</a>
+    </div>
+
+</body>
+
+
+
+<script type="text/javascript">
+    	
+        
         function WebSocketTest() {
+        	
+        	var word = document.getElementById("word").value;
+            console.log(word);
 
             if ("WebSocket" in window) {
                 alert("WebSocket is supported by your Browser!");
@@ -16,7 +30,7 @@
                 socket.onopen = function (e) {
                     alert("[open] Connection established");
                     alert("Sending to server");
-                    socket.send("My name is John");
+                    socket.send(word);
                 };
 
                 socket.onmessage = function (event) {
@@ -44,15 +58,6 @@
                 alert("WebSocket NOT supported by your Browser!");
             }
         }
-    </script>
-
-</head>
-
-<body>
-    <div id="sse">
-        <a href="javascript:WebSocketTest()">Run WebSocket</a>
-    </div>
-
-</body>
+</script>
 
 </html>
