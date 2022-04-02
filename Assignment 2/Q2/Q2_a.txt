@@ -1,0 +1,79 @@
+WEB.XML
+------------------------------
+  <servlet>
+  	<servlet-name>abc</servlet-name>
+  	<servlet-class>com.abhi.Q2_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>abc</servlet-name>
+    <url-pattern>/Assignment_2/Q2/StuData</url-pattern>
+  </servlet-mapping>
+-----------------------------------------------------------------------------------
+  
+  
+Q2_Servlet.html
+------------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+	<h2>Go ........</h2>
+	
+	<form action="StuData" method="get">
+		Search by name : <input type="text" name="name"> <br>
+	    <input type="submit">
+	</form>
+	
+</body>
+</html
+-----------------------------------------------------------------------------------
+
+
+
+
+Q2_Servlet.java
+----------------------
+package com.abhi;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+
+public class Q2_Servlet extends HttpServlet {
+	
+	public void service(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			String url="jdbc:mysql://localhost:3306/joins";
+			String usrName = "root";
+			String password = "Abhi@2000";
+			String name = request.getParameter("name");
+			
+			String query = "select * from students where name like '%"+ name+"%';"  ;
+			System.out.println(query);
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, usrName, password);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while ( rs.next() ) {
+				String str = rs.getString(1) + "  " + rs.getString(2)+"  " + rs.getString(3) ;
+				response.getWriter().println(str);
+			}
+						
+			rs.close();
+			conn.close();
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}
+----------------------------------------------------------------------------------------
+
+
+
