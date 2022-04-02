@@ -1,0 +1,86 @@
+WEB.XML
+------------------------------
+  <servlet>
+  	<servlet-name>xyz</servlet-name>
+  	<servlet-class>com.abhi.Q2_ServletDropDown</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>xyz</servlet-name>
+    <url-pattern>/Assignment_2/Q2/StuDataDropDown</url-pattern>
+  </servlet-mapping>
+-----------------------------------------------------------------------------------
+  
+  
+Q2_ServletDropDown.html
+------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<h1>Select Department</h1>
+</head>
+<body>
+
+	<form action="StuDataDropDown" method="get">
+		<select name="dept">
+			<option value="IT">IT</option>
+			<option value="CSE">CSE</option>
+			<option value="CEC">CEC</option>
+			<option value="EE">EE</option>
+		</select><br><br>
+		<input type="submit">
+	</form>
+
+
+</body>
+</html>
+-----------------------------------------------------------------------------------
+
+
+
+
+Q2_ServletDropDown.java
+----------------------
+package com.abhi;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+
+public class Q2_ServletDropDown extends HttpServlet {
+	
+	public void service(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			String url="jdbc:mysql://localhost:3306/joins";
+			String usrName = "root";
+			String password = "Abhi@2000";
+			String name = request.getParameter("dept");
+			
+			String query = "select * from students where dept = '"+ name+"';"  ;
+			System.out.println(query);
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, usrName, password);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			int i=0;
+			
+			while ( rs.next() ) {
+				String str = rs.getString(1) + "  " + rs.getString(2)+"  " + rs.getString(3) ;
+				response.getWriter().println(str);
+			}
+						
+			rs.close();
+			conn.close();
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}
+
+----------------------------------------------------------------------------------------
