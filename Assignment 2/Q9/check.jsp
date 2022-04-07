@@ -10,7 +10,7 @@
 <body>
 	<%
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/joins","root","Abhi@2000");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/joins","root","Abhi@");
 		String[] answers = new String[3];
 		for(int i = 1; i <= 3; i++){
 			String param = "Q" + String.valueOf(i);
