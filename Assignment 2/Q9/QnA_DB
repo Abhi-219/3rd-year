@@ -1,0 +1,10 @@
+CREATE TABLE QnA (
+    Question varchar(255),
+    Answer varchar(255)
+);
+
+insert into QnA (Question,Answer) values ("Q1","2");
+insert into QnA (Question,Answer) values ("Q2","3");
+insert into QnA (Question,Answer) values ("Q3","2");
+
+select * from QnA;
