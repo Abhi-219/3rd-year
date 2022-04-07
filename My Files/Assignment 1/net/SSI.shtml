@@ -1,0 +1,25 @@
+This is a file having extension .shtml<br>
+<!--#config timefmt="%A %B %d, %m %Y" -->
+<!--#echo var="DATE_LOCAL" -->
+<br>
+<!--#printenv -->
+<br>
+<!--#fsize file="login.html" --><br>
+<!--#flastmod file="login.html" --><br>
+
+<!--#include virtual="header.html" --><br>
+<!--#include virtual="servlet/HelloWorld" --><br>
+<!--#include virtual="footer.html" --><br>
+
+<!--#config timefmt="%A" -->
+<!--#if expr="$DATE_LOCAL = /Sunday/" -->
+<p>Today is Sunday</p>
+<!--#elif expr="$DATE_LOCAL = /Saturday/" -->
+<p>Today is Saturday</p>
+<!--#elif expr="$DATE_LOCAL = /Wednesday/" -->
+<p>Today is Wednesday</p>
+<!--#else -->
+<p>Week day</p>
+<!--#endif -->
+
+This is the footer of the page

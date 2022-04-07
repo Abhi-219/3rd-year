@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facto</title>
+    
+</head>
+<body>
+    <input type="text" name="numb" id="num">
+    <button onclick="runWorker()">Run</button><br>
+    <div id="mydiv"></div>
+
+    <script>
+        
+        function runWorker(){
+            const mynum = parseInt(document.getElementById("num").value);
+            let res = "";
+            if(window.Worker){
+                const w = new Worker("work.js");
+                w.postMessage({input:mynum})
+                w.onmessage = function(e){
+                    const factorial = e.data;
+                    console.log(factorial);
+                    res += "<table><tr><td>number</td><td>factorial</td></tr>";
+                    let i;
+                    for(i = 1; i <= mynum; i++){
+                        res += `<tr><td>${i}</td><td>${factorial[i-1]}</td></tr>`;
+                    }
+                    res += `</table>`;
+                    document.getElementById('mydiv').insertAdjacentHTML("beforeend", res);
+                }
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

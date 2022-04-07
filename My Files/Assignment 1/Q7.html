@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>choose your year and semester</h1>
+    <h2>Select year</h2>
+    <select name="years" id="years">
+        <option value="1">1st</option>
+        <option value="2">2nd</option>
+        <option value="3">3rd</option>
+        <option value="4">4th</option>
+    </select>
+    <h2>Select semesters</h2>
+    <select name="semesters" id="semesters">
+        <option value="1">1st</option>
+        <option value="2">2nd</option>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="getSubjects()">submit</button>
+    <div id="result">
+        
+    </div>
+    <script>
+        function getSubjects(){
+            const year = document.getElementById('years').value;
+            const semester = document.getElementById('semesters').value;
+            const res = document.getElementById('result');
+            if(Number.parseInt(year, 10) === 1){
+                if(Number.parseInt(semester, 10) === 1){
+                    res.innerHTML = "<ul><li>Maths</li><li>Physics</li><li>Chemistry</li></ul>";
+                }
+                else{
+                    res.innerHTML = "<ul><li>C</li><li>ED</li><li>Basic Electronics</li></ul>";
+                }
+            }
+            else if(Number.parseInt(year, 10) === 2){
+                if(Number.parseInt(semester, 10) === 1){
+                    res.innerHTML = "<ul><li>DBMS</li><li>COA</li><li>OOPS</li></ul>";
+                }
+                else{
+                    res.innerHTML = "<ul><li>Computer Networks</li><li>Computer Graphics</li><li>OOS</li></ul>";
+                }
+            }
+            else if(Number.parseInt(year, 10) === 3){
+                if(Number.parseInt(semester, 10) === 1){
+                    res.innerHTML = "<ul><li>OS</li><li>AI</li><li>Web Application 1</li></ul>";
+                }
+                else{
+                    res.innerHTML = "<ul><li>DAA</li><li>Web Application 2</li><li>Information Security</li></ul>";
+                }
+            }
+            else{
+                if(Number.parseInt(semester, 10) === 1){
+                    res.innerHTML = "<ul><li>ML</li><li>Big Data</li></ul>";
+                }
+                else{
+                    res.innerHTML = "<ul><li>Basic Economics</li><li>Multimedia and Coding</li></ul>";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

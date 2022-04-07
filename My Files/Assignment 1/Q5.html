@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Dashboard</title>
+    <script>
+
+        var time;
+        window.onload = resetTimer;
+        document.onmousemove = resetTimer;
+        document.onkeydown = resetTimer;
+
+        function resetTimer() {
+            clearTimeout(time);
+            time = setTimeout(function(){
+            window.location = "logout.html"
+            },10000)
+        }
+
+    </script>
+</head>
+<body>
+    <h1>You are logged in</h1>    
+    <div id="mydiv"></div>
+</body>
+</html>

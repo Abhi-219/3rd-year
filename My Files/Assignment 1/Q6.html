@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="radio" name = "payment" onclick="makeInvisible()">
+        <label>Pay Now</label>
+        <br>
+        <input type="radio" name = "payment" onclick="payLater()">
+        <label>Pay Later</label>
+        <div id="my-div"></div>
+        <!-- <input type="date"> -->
+    </form>
+    <script>
+        function payLater(){
+            document.getElementById("my-div").innerHTML = "<input type=\"date\">";
+        }
+        function makeInvisible(){
+            document.getElementById("my-div").style.display = "none";
+        }
+    </script>
+</body>
+</html>

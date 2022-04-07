@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>State and Districts</title>
+	<script type="text/javascript">
+
+		var dis0=["Select district"];
+		var dis1=["Lucknow","Varanasi"];
+		var dis2=["Kolkata","Durgapur"];
+		var dis3=["Mumbai","Pune"];
+		var dis=[dis0,dis1,dis2,dis3];
+
+		var info0=["Please select District to see info"];
+		var info1=["Lucknow is the capital of UP","Varanasi is the constituency  of our current PM"];
+		var info2=["Kolkata is known as the city of joy","Durgapur has a NIT"];
+		var info3=["Mumbai is the capital of Maharashtra","Pune ia a big city in Maharashtra"];
+		var info=[info0,info1,info2,info3];
+
+		function populateDistrict(){
+			var x=Number(document.getElementById("state").value);
+			var element=document.getElementById("dist");
+			element.innerHTML="";
+			for (var i =0;i < info[x].length; i++) {
+				element.innerHTML+="<option value=\""+i+"\">"+dis[x][i]+"</option>"
+			}
+			listDetails();
+		}
+
+		function listDetails(){
+			var x=Number(document.getElementById("state").value);
+			var y=Number(document.getElementById("dist").value);
+			var element=document.getElementById("myDiv");
+			element.innerHTML=info[x][y];
+		}
+
+	</script>
+
+</head>
+<body>
+<p>Select state and respective district to view its information.</p><br>
+<table>
+<tr>
+<td><label>State : </label></td>
+<td><select id="state" onchange="populateDistrict()">
+  <option value="0" selected="true">Choose State</option>
+  <option value="1">Uttar Pradesh</option>
+  <option value="2">West Bengal</option>
+  <option value="3">Maharashtra</option>
+  </select></td></tr>
+
+
+<tr><td><label>District : </label></td>
+<td><select id="dist" onchange="listDetails()">
+  <option value="0" selected="true">Choose District</option>
+</select></td>
+</tr>
+</table><br>
+<div id="myDiv"></div>
+</body>
+</html>

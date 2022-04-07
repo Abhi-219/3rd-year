@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="username">Username</label>
+            <br>
+            <input type="text" placeholder="Enter username" id="username">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" placeholder="Enter password" id="password">
+        </div>
+        <button type="button" onclick="check()">submit</button>
+    </form>
+    <br>
+    <div id="myDiv">
+    </div>
+    <script>
+        function check(){
+            const _username = document.getElementById("username").value;
+            const _password = document.getElementById("password").value;
+            const validUserName = /^[a-zA-Z_]{1,10}$/;
+            if(_password.length < 6 || _password.length > 10){
+                console.log("invalid");
+                return;
+            }
+            let upperCase = 0, digits = 0;
+            for(let i = 0; i < _password.length; i++){
+                let ch = _password[i];
+                let num = Number.parseInt(ch);
+                digits += (num <= 9 && num >= 0);
+                upperCase += (ch >= 'A' && ch <= 'Z');
+            }
+            if(digits >= 1 && upperCase >= 1 && validUserName.test(_username)){
+                document.getElementById('myDiv').innerText = "valid";
+                document.getElementById("myDiv").style.color = "green";
+            }
+            else{
+                document.getElementById('myDiv').innerText = "Invalid";
+                document.getElementById("myDiv").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
