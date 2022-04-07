@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type = "text/xsl" href = "Q11.xsl"?>
+<question-paper>
+    <question no="1">
+        <text>Q1:</text>
+        <optionA>1A</optionA>
+        <optionB>1B</optionB>
+        <optionC>1C</optionC>
+        <optionD>1D</optionD>
+        <answer value="optionC">37</answer>
+    </question>
+    <question no="2">
+        <text>Q2</text>
+        <optionA>2A</optionA>
+        <optionB>2B</optionB>
+        <optionC>2C</optionC>
+        <optionD>2D</optionD>
+        <answer value="optionC">0.6976</answer>
+    </question>
+</question-paper>
