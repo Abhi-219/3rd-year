@@ -4,14 +4,22 @@ CREATE TABLE Components (
 	price int
 );
 
+-- drop table Components;
+
 insert into Components values ("HDD","dell",2000);
 insert into Components values ("HDD","asus",1000);
 insert into Components values ("HDD","hp",1300);
 
-insert into Components values ("Motherboard,","dell",2000);
-insert into Components values ("Motherboard,","asus",1000);
-insert into Components values ("Motherboard,","hp",1300);
+insert into Components values ("Motherboard","dell",2000);
+insert into Components values ("Motherboard","asus",1000);
+insert into Components values ("Motherboard","hp",1300);
 
-insert into Components values ("processor,","dell",8000);
-insert into Components values ("processor,","asus",4000);
-insert into Components values ("processor,","hp",6300);
+insert into Components values ("processor","dell",8000);
+insert into Components values ("processor","asus",4000);
+insert into Components values ("processor","hp",6300);
+
+insert into Components values ("RAM","dell",8000);
+insert into Components values ("RAM","asus",4000);
+insert into Components values ("RAM","hp",6300);
+
+select * from components;
