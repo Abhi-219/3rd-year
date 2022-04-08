@@ -1,0 +1,17 @@
+CREATE TABLE Components (
+    component varchar(255),
+	manu varchar(255),
+	price int
+);
+
+insert into Components values ("HDD","dell",2000);
+insert into Components values ("HDD","asus",1000);
+insert into Components values ("HDD","hp",1300);
+
+insert into Components values ("Motherboard,","dell",2000);
+insert into Components values ("Motherboard,","asus",1000);
+insert into Components values ("Motherboard,","hp",1300);
+
+insert into Components values ("processor,","dell",8000);
+insert into Components values ("processor,","asus",4000);
+insert into Components values ("processor,","hp",6300);
