@@ -23,3 +23,78 @@ insert into Components values ("RAM","asus",4000);
 insert into Components values ("RAM","hp",6300);
 
 select * from components;
+-------------------------------------------------------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		String hdd = request.getParameter("HDD");
+		String Motherboard = request.getParameter("Motherboard");
+		String processor = request.getParameter("processor");
+		String ram = request.getParameter("RAM");
+		
+		int ans=0;
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/joins","root","Abhi@");
+		
+		PreparedStatement ps = con.prepareStatement("select price from Components where component=? and manu=?  ");
+		ps.setString(1, "HDD");
+		ps.setString(2, hdd);
+		
+		ResultSet rs = ps.executeQuery();
+		ans+=rs;
+		
+		
+		
+		out.println("Total Price is " + ans);
+	%>
+	
+</body>
+</html>
+---------------------------------------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<form action="Q13.jsp">
+		<h3>HDD</h3>
+		<select name="HDD" >
+			<option value="dell">dell</option>
+			<option value="asus">asus</option>
+			<option value="hp">hp</option>
+		</select>
+		
+		<h3>Motherboard</h3>
+		<select name="Motherboard" >
+			<option value="dell">dell</option>
+			<option value="asus">asus</option>
+			<option value="hp">hp</option>
+		</select>
+		
+		<h3>processor</h3>
+		<select name="processor" >
+			<option value="dell">dell</option>
+			<option value="asus">asus</option>
+			<option value="hp">hp</option>
+		</select>
+		
+		<h3>RAM</h3>
+		<select name="RAM" >
+			<option value="dell">dell</option>
+			<option value="asus">asus</option>
+			<option value="hp">hp</option>
+		</select>
+		
+		<br><br>
+		<button type="submit">Total Price</button>
+	</form>
+</body>
+</html>
